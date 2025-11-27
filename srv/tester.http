@@ -1,0 +1,79 @@
+###Get the service document
+http://localhost:4004/odata/v4/CatalogService/
+###Get the service metadata document
+http://localhost:4004/odata/v4/CatalogService/$metadata
+###Get the service with employee data
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+###Post - cerate employee data
+POST  http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+Content-Type: application/json
+
+ {
+      "nameFirst": "Paresh",
+      "nameMiddle": null,
+      "nameLast": "Thakur",
+      "nameInitials": null,
+      "sex": "M",
+      "language": "E",
+      "phoneNumber": null,
+      "email": "Paresh.thakur@sap.com",
+      "loginName": "PARESH",
+      "Currency_code": "USD",
+      "salaryAmount": 1000,
+      "accountNumber": "5544332211",
+      "bankId": "12100035",
+      "bankName": "My Bank of San Francisco"
+}
+
+
+###Get the single employee which was cerated 
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/eea723d1-06fb-4875-b742-0ae459a8c517
+
+###Update employee data
+PATCH http://localhost:4004/odata/v4/CatalogService/EmployeeSet/eea723d1-06fb-4875-b742-0ae459a8c517
+Content-Type: application/json
+
+{
+    "salaryAmount": 1000000
+}
+###Delete employee data
+DELETE  http://localhost:4004/odata/v4/CatalogService/EmployeeSet/eea723d1-06fb-4875-b742-0ae459a8c517
+
+###Get the Purchase orders
+http://localhost:4004/odata/v4/CatalogService/POs
+
+###Get the Single PO
+http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC28052
+
+###Get the Purchase orders along with PO Items data toghther
+http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC28052?$expand=Items
+
+###Count of PO records
+http://localhost:4004/odata/v4/CatalogService/POs/$count
+
+###Search data in system
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$filter=nameFirst eq 'Sally'
+
+###Search with pattern match
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$filter=Contains(loginName,'SH')
+
+###Pagination
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$top=5&$skip=2
+
+###select few columns
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$select=nameFirst,email,loginName
+
+###Get the Single PO
+http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B0C98DC28052
+
+###testing the boost action
+POST http://localhost:4004/odata/v4/CatalogService/POs('74867AD200E41EDBA5D8B0C98DC28052')/CatalogService.boost
+Content-Type: application/json
+
+{}
+
+###Get the Single PO
+http://localhost:4004/odata/v4/CatalogService/getLargestOrder()
+
+###Getting single data for order
+http://localhost:4004/odata/v4/myservice/ReadEmployeeSrv

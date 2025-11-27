@@ -1,0 +1,5 @@
+id,name,gender,class_id,houseNo,street,city
+101,'Mahesh', 'M', C1,325,MG Road,Gurgaon
+102, 'Aman', 'M', C1,B707,Betfred circle,Santa Clara
+103, 'Komal', 'F', C2,T333,Diamond Dist,London
+104, 'Sham', 'M', C3,MK5,Shanghai Road,Shanghai
